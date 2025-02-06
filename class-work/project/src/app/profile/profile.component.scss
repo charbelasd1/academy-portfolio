@@ -1,0 +1,98 @@
+// Define variables
+$gap-desktop: 5rem;
+$gap-mobile: 2rem;
+$height-desktop: 80vh;
+$height-mobile: auto;
+
+// Mixin for responsiveness
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 768px) { @content; }
+  }
+}
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: $gap-desktop;
+  height: $height-desktop;
+  transition: all 0.3s ease-in-out;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: $gap-mobile;
+    height: $height-mobile;
+  }
+}
+
+.section__profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__img img {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.section__profile_text {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.section__text__p2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .btn-color-1 {
+    background: #007bff;
+    color: white;
+  }
+
+  .btn-color-2 {
+    background: #28a745;
+    color: white;
+  }
+
+  .btn:hover {
+    opacity: 0.8;
+  }
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
