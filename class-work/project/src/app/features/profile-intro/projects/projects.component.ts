@@ -1,12 +1,18 @@
-import { CommonModule } from '@angular/common'; // Add this to use common Angular directives
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { ProjectCardComponent } from '../../../shared/all projects/project-card/project-card.component'; // Ensure this path is correct
+import { PROJECTS } from "../../../../assets/project";
+import { ProjectCardComponent } from '../../../shared/all projects/project-card/project-card.component';
 
 @Component({
   selector: 'app-projects',
-  standalone: true,  // Ensure this is a standalone component
+  standalone:true,
+  imports: [
+    ProjectCardComponent,
+    NgFor
+  ],
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
-  imports: [CommonModule, ProjectCardComponent] // Add CommonModule if needed
+  styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {}
+export class ProjectsComponent {
+  projects = PROJECTS;
+}
